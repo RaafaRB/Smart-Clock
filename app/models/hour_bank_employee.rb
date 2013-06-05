@@ -1,3 +1,2 @@
-class HourBankEmployee < ActiveRecord::Base
-  # attr_accessible :title, :body
+class HourBankEmployee < Employee
 end
