@@ -1,4 +1,12 @@
 SmartClock::Application.routes.draw do
+  get "hour_bank_employee/new"
+
+  get "hour_bank_employee/index"
+
+  get "scheduled_employee/new"
+
+  get "scheduled_employee/index"
+
   get "home/index"
 
   resources :employees
