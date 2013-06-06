@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+ <p>
+   <b>Name:</b>
+   <%= @scheduled_employee.name %>
+ </p>
+
+
+ <b>Workload:</b>
+   <%= @scheduled_employee.workload %>
+ </p>
+ 
+ <p>
+   <b>Type:</b>
+   <%= @scheduled_employee.type %>
+ </p>
+ 
+ <p>
+   <b>Arrival Time:</b>
+   <%= @scheduled_employee.arrival %>
+ </p>
+ 
+ <p>
+   <b>Exit Time:</b>
+   <%= @scheduled_employee.exit %>
+ </p>
+ 
+ <p>
+   <b>Lunch Time:</b>
+   <%= @scheduled_employee.lunch %>
+ <p>
+
+
+<%= link_to 'Edit', edit_scheduled_employee_path(@scheduled_employee) %> |
+<%= link_to 'Back', employees_path %>

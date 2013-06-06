@@ -1,15 +1,13 @@
 SmartClock::Application.routes.draw do
-  get "hour_bank_employee/new"
 
-  get "hour_bank_employee/index"
+  resources :scheduled_employes
 
-  get "scheduled_employee/new"
-
-  get "scheduled_employee/index"
-
-  get "home/index"
 
   resources :employees
+
+  resources :scheduled_employees
+
+  resources :hour_bank_employees
 
 
   # The priority is based upon order of creation:
