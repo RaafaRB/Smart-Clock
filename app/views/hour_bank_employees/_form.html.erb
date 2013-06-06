@@ -1,18 +1,22 @@
-<%= form_for(@employee) do |f| %>
-  <% if @employee.errors.any? %>
+<%= form_for(@hour_bank_employee) do |f| %>
+  <% if @hour_bank_employee.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this scheduled_employe from being saved:</h2>
+      <h2><%= pluralize(@hour_bank_employee.errors.count, "error") %> prohibited this scheduled_employe from being saved:</h2>
 
       <ul>
-      <% @employee.errors.full_messages.each do |msg| %>
+      <% @hour_bank_employee.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+   <div class ="field">
+     <%= f.label :name %><br />
+     <%= f.text_field :name %><br />
+   <div>
    <div class="field">
-     <%= f.label :id %><br />
-     <%= f.number_field :id%>
+     <%= f.label :workload %><br />
+     <%= f.number_field :workload%>
    </div>
 
   <div class="actions">

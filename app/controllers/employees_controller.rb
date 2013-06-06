@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
-  before_filter :search, only: [:capture_emp, :show, :edit, :destroy]
+  before_filter :search, only: [:show, :edit, :destroy]
   def search
     @employee = Employee.find(params[:id])
   end
@@ -15,6 +15,7 @@ class EmployeesController < ApplicationController
   end
   
   def capture_emp
+    @employee = Employee.find(params[:id]) 
   end
 
   # GET /employees/1

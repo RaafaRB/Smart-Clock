@@ -1,5 +1,8 @@
 <h1>Smart Clock!</h1>
 
-<%=link_to "Check", "/capture_emp"%>
+<%= form_tag employees_capture_emp_path do %>
+  <%= number_field_tag :id %>
+  <%= submit_tag 'Go' %>
+<% end %>
 
 <%=link_to "Employees", employees_path%>

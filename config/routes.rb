@@ -2,7 +2,7 @@ SmartClock::Application.routes.draw do
 
   resources :home
 
-  get 'employee_controller/capture_emp'
+  post 'employees/capture_emp'
 
   resources :employees
 

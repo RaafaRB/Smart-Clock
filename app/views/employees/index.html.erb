@@ -17,10 +17,10 @@
   <tr>
     <td><%= employee.name %></td>
     <td><%= employee.workload %></td>
-    <td><%= employee.type %></td>
-    <td><%= employee.arrival %></td>
-    <td><%= employee.exit %></td>
-    <td><%= employee.lunch %></td>
+    <td><%= employee.type%></td>
+    <td><%= employee.arrival.to_s(:time) if(employee.arrival)%></td>
+    <td><%= employee.exit.to_s(:time) if(employee.arrival)%></td>
+    <td><%= employee.lunch.to_s(:time) if(employee.arrival)%></td>
     <td><%= link_to 'Show', employee %></td>
     <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
     <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,6 +30,6 @@
 
 <br />
 
-<%= link_to 'New Employee', new_employee_path %>
+<%= link_to 'Back', home_index_path %>
 <%= link_to 'New Scheduled Employee', new_scheduled_employee_path %>
 <%= link_to 'New Hour Bank Employee', new_hour_bank_employee_path %>
