@@ -1,4 +1,6 @@
-<h1> Use your ID to check <h1>
- <div class="field">
- <%= number_field_tag(:id, "Ex: 15") %>
- </div>
+<h1> Use your ID to check </h1>
+   <%= radio_button_tag(:check, 'check_in') %> 
+   <%= label_tag(:check_in, 'Check In') %> 
+   <%= radio_button_tag(:check, 'check_out') %> 
+   <%= label_tag('Check Out', 'Check Out') %> 
+   <%= submit_tag 'Ok' %>

@@ -1,8 +1,8 @@
 class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
-  before_filter :search, only: [:show, :edit, :destroy]
-  def search
+  before_filter :fetch, only: [:show, :edit, :destroy]
+  def fetch
     @employee = Employee.find(params[:id])
   end
   def index
@@ -15,7 +15,22 @@ class EmployeesController < ApplicationController
   end
   
   def capture_emp
-    @employee = Employee.find(params[:id]) 
+    @employee = Employee.find(params[:id])
+    last_history = @employee.hour_histories.last
+
+    last_history = HourHistory.new() unless last_history)
+
+    if(!last_history.day || last_history.day < Time.now.day)
+	last_history = 	ClockChecker.incomplete?
+    else
+        if(params[:check] == "check_in") ClockChecker.check_in
+            ClockChecker.check_out
+        else
+            if(params[:check] == "check_in") ClockChecker.check_in
+                ClockChecker.check_out
+	    end
+	end
+    end
   end
 
   # GET /employees/1
