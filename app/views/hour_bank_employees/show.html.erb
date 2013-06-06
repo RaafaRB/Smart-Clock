@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+ <p>
+   <b>Name:</b>
+   <%= @hour_bank_employee.name %>
+ </p>
+
+
+ <b>Workload:</b>
+   <%= @hour_bank_employee.workload %>
+ </p>
+ 
+ <p>
+   <b>Type:</b>
+   <%= @hour_bank_employee.type %>
+ </p>
+ 
+<%= link_to 'Edit', edit_hour_bank_employee_path(@hour_bank_employee) %> |
+<%= link_to 'Back', employees_path %>

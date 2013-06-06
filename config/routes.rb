@@ -1,7 +1,8 @@
 SmartClock::Application.routes.draw do
 
-  resources :scheduled_employes
+  resources :home
 
+  get 'employee_controller/capture_emp'
 
   resources :employees
 

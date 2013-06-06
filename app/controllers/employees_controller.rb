@@ -1,6 +1,10 @@
 class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
+  before_filter :search, only: [:capture_emp, :show, :edit, :destroy]
+  def search
+    @employee = Employee.find(params[:id])
+  end
   def index
     @employees = Employee.all
 
@@ -9,32 +13,23 @@ class EmployeesController < ApplicationController
       format.json { render json: @employees }
     end
   end
+  
+  def capture_emp
+  end
 
   # GET /employees/1
   # GET /employees/1.json
   def show
-    @employee = Employee.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @employee }
-    end
   end
 
   # GET /employees/new
   # GET /employees/new.json
   def new
     @employee = Employee.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @employee }
-    end
   end
 
   # GET /employees/1/edit
   def edit
-    @employee = Employee.find(params[:id])
   end
 
   # POST /employees
@@ -56,8 +51,6 @@ class EmployeesController < ApplicationController
   # PUT /employees/1
   # PUT /employees/1.json
   def update
-    @employee = Employee.find(params[:id])
-
     respond_to do |format|
       if @employee.update_attributes(params[:employee])
         format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
@@ -72,7 +65,6 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
-    @employee = Employee.find(params[:id])
     @employee.destroy
 
     respond_to do |format|
