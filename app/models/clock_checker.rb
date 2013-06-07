@@ -18,10 +18,15 @@ class ClockChecker
   end 
 
   def self.complete(hist, employee)
-      return unless(hist.arrived)
-      if (hist.went_lunch && hist.came_lunch && !hist.went_away)
-        hist.went_away = hist.arrived.advance(
+      if(hist.arrived == nil)
+	  hist.difference = employee.workload * 60
+          hist.save
+      else
+        if(hist.went_lunch && hist.came_lunch && !hist.went_away)
+            hist.went_away = hist.arrived.advance(
                                   hours: (employee.workload + 1))
+        end
+	dif = hist.went_away - hist.arrived - (1 *360) 
       end
   end
 

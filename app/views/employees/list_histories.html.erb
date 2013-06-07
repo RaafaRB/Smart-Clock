@@ -1,0 +1,22 @@
+<h1> Employee <%= #{@employee.name}%> Histories</h1>
+
+<table>
+  <tr>
+     <th>Day</th>
+     <th>Arrived</th>
+     <th>Went to lunch</th>
+     <th>Came from lunch</th>
+     <th>Went away</th>
+     <th>Extra Hours</th>
+     <th>Hours to Complete</th>
+ </tr>
+
+<% @hour_histories.each do |h| %>
+ <tr>
+  <th><%= h.day.to_date %></th>
+  <th><%= h.went_lunch.to_s(:time) %></th>
+  <th><%= h.came_lunch.to_s(:time) %></th>
+  <th><%= h.went_away.to_s(:time) %></th>
+  <th><%  %></th>
+  <th><% %></th>
+     
