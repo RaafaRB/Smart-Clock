@@ -1,8 +1,11 @@
 <h1>Smart Clock!</h1>
 
-<%= form_tag employees_capture_emp_path do %>
+<%= form_tag '' do %>
   <%= number_field_tag :id %>
-  <%= submit_tag 'Go' %>
+  <%= submit_tag 'Check in',
+     onclick: "this.form.action = '#{employees_check_in_url}'; this.form.submit();" %>
+  <%= submit_tag 'Check out',
+     onclick: "this.form.action = '#{employees_check_out_url}'; this.form.submit();" %>
 <% end %>
 
 <%=link_to "Employees", employees_path%>

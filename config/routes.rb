@@ -3,6 +3,8 @@ SmartClock::Application.routes.draw do
   resources :home
 
   post 'employees/capture_emp'
+  post 'employees/check_in'
+  post 'employees/check_out'
 
   resources :employees
 

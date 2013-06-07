@@ -14,23 +14,16 @@ class EmployeesController < ApplicationController
     end
   end
   
-  def capture_emp
-    @employee = Employee.find(params[:id])
-    last_history = @employee.hour_histories.last
+  def check_in
+    employee = Employee.find(params[:id])
+    ClockChecker.check_in(employee)
+    redirect_to home_index_url
+  end
 
-    last_history = HourHistory.new() unless last_history)
-
-    if(!last_history.day || last_history.day < Time.now.day)
-	last_history = 	ClockChecker.incomplete?
-    else
-        if(params[:check] == "check_in") ClockChecker.check_in
-            ClockChecker.check_out
-        else
-            if(params[:check] == "check_in") ClockChecker.check_in
-                ClockChecker.check_out
-	    end
-	end
-    end
+  def check_out
+    employee = Employee.find(params[:id])
+    ClockChecker.check_out(employee)
+    redirect_to home_index_url
   end
 
   # GET /employees/1
