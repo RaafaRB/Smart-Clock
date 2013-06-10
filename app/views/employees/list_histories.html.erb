@@ -1,4 +1,4 @@
-<h1> Employee <%= #{@employee.name}%> Histories</h1>
+<h1> Listing Your Hour Histories</h1>
 
 <table>
   <tr>
@@ -13,10 +13,15 @@
 
 <% @hour_histories.each do |h| %>
  <tr>
-  <th><%= h.day.to_date %></th>
-  <th><%= h.went_lunch.to_s(:time) %></th>
-  <th><%= h.came_lunch.to_s(:time) %></th>
-  <th><%= h.went_away.to_s(:time) %></th>
-  <th><%  %></th>
-  <th><% %></th>
-     
+  <td><%= h.day.to_date %></th>
+  <td><%= h.arrived.to_s(:time) if h.arrived%></th>
+  <td><%= h.went_lunch.to_s(:time) if h.went_lunch %></th>
+  <td><%= h.came_lunch.to_s(:time) if h.came_lunch%></th>
+  <td><%= h.went_away.to_s(:time) if h.went_away%></th>
+  <td><%= h.difference / 360 if h.difference > 0 if h.difference  %></th>
+  <td><%= h.difference / 360 if h.difference < 0 if h.difference  %></th>
+ </tr>
+ <% end %>    
+</table>
+<br />
+<%= link_to "Back", home_index_path %>

@@ -13,17 +13,22 @@ class EmployeesController < ApplicationController
       format.json { render json: @employees }
     end
   end
+
+  def list_histories
+  end
   
   def check_in
     employee = Employee.find(params[:id])
     ClockChecker.check_in(employee)
-    redirect_to home_index_url
+    @hour_histories = employee.hour_histories.all
+    render :list_histories
   end
 
   def check_out
     employee = Employee.find(params[:id])
     ClockChecker.check_out(employee)
-    redirect_to home_index_url
+    @hour_histories = employee.hour_histories.all
+    render :list_histories
   end
 
   # GET /employees/1

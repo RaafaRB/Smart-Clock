@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(:version => 20130607200109) do
 
+  create_table "clock_checkers", :force => true do |t|
+  end
+
   create_table "employees", :force => true do |t|
     t.string   "name"
     t.integer  "workload"

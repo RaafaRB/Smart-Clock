@@ -5,6 +5,7 @@ SmartClock::Application.routes.draw do
   post 'employees/capture_emp'
   post 'employees/check_in'
   post 'employees/check_out'
+  match  'employees/list_histories/id'
 
   resources :employees
 
